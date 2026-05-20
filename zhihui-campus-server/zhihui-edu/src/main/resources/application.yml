@@ -1,0 +1,41 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: zhihui-edu
+  datasource:
+    url: jdbc:mysql://localhost:3306/zhihui_campus?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    database: 3
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.zhihui.edu.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.zhihui.edu: debug
+
+# 正方教务系统配置（待对接时启用）
+# zhengfang:
+#   base-url: http://jwxt.example.edu.cn
+#   cas-url: http://cas.example.edu.cn
+#   sync:
+#     cron: "0 0 2 * * ?"
+#     enabled: false
