@@ -1,0 +1,95 @@
+// 全局样式变量
+:root {
+  --primary-color: #409eff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+  --info-color: #909399;
+
+  --bg-color: #f5f7fa;
+  --sidebar-bg-color: #304156;
+  --sidebar-text-color: #bfcbd9;
+  --sidebar-active-text-color: #409eff;
+
+  --header-height: 60px;
+  --sidebar-width: 210px;
+  --sidebar-collapse-width: 64px;
+}
+
+// 通用样式
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 间距
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.ml-10 { margin-left: 10px; }
+.mr-10 { margin-right: 10px; }
+.p-20 { padding: 20px; }
+
+// 卡片样式
+.card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// 表格操作按钮
+.table-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+// 页面容器
+.page-container {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+// 搜索表单
+.search-form {
+  margin-bottom: 20px;
+
+  .el-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+// NProgress样式
+#nprogress {
+  .bar {
+    background: var(--primary-color) !important;
+  }
+}

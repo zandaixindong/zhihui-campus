@@ -1,0 +1,110 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: zhihui-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: zhihui-campus
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: zhihui-campus
+        file-extension: yml
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # 认证服务
+        - id: zhihui-auth
+          uri: lb://zhihui-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=0
+
+        # 系统管理服务
+        - id: zhihui-system
+          uri: lb://zhihui-system
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix=0
+
+        # 教务服务
+        - id: zhihui-edu
+          uri: lb://zhihui-edu
+          predicates:
+            - Path=/edu/**
+          filters:
+            - StripPrefix=0
+
+        # 学工服务
+        - id: zhihui-student
+          uri: lb://zhihui-student
+          predicates:
+            - Path=/student/**
+          filters:
+            - StripPrefix=0
+
+        # 生活服务
+        - id: zhihui-life
+          uri: lb://zhihui-life
+          predicates:
+            - Path=/life/**
+          filters:
+            - StripPrefix=0
+
+        # 图书服务
+        - id: zhihui-library
+          uri: lb://zhihui-library
+          predicates:
+            - Path=/library/**
+          filters:
+            - StripPrefix=0
+
+        # 通知服务
+        - id: zhihui-notice
+          uri: lb://zhihui-notice
+          predicates:
+            - Path=/notice/**
+          filters:
+            - StripPrefix=0
+
+      # 默认过滤器
+      default-filters:
+        - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+
+  # Redis配置
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+
+# 网关配置
+gateway:
+  # 白名单路径（不需要认证）
+  white-list:
+    - /auth/login
+    - /auth/register
+    - /auth/captcha
+    - /public/**
+    - /doc.html
+    - /swagger-ui/**
+    - /v3/api-docs/**
+
+logging:
+  level:
+    com.zhihui.gateway: debug
+    org.springframework.cloud.gateway: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

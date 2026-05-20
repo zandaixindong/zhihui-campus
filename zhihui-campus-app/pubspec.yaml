@@ -1,0 +1,75 @@
+name: zhihui_campus_app
+description: 智慧校园服务平台
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 状态管理
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
+  # 路由管理
+  go_router: ^13.0.0
+
+  # 网络请求
+  dio: ^5.4.0
+
+  # 本地存储
+  shared_preferences: ^2.2.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # UI组件
+  cupertino_icons: ^1.0.6
+  flutter_screenutil: ^5.9.0
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.9
+  pull_to_refresh: ^2.0.0
+  flutter_easyloading: ^3.0.5
+
+  # 工具
+  intl: ^0.19.0
+  date_format: ^2.0.7
+  uuid: ^4.2.2
+
+  # 推送
+  # jpush_flutter: ^2.4.0
+
+  # 生物识别
+  local_auth: ^2.1.8
+
+  # 图表
+  fl_chart: ^0.66.0
+
+  # 权限
+  permission_handler: ^11.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+  hive_generator: ^2.0.1
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: assets/fonts/CustomFont-Regular.ttf
+  #       - asset: assets/fonts/CustomFont-Bold.ttf
+  #         weight: 700
